@@ -33,7 +33,7 @@ export default {
 
       <router-link to="/main">Главная</router-link>
       <router-link to="/wiki">Вики</router-link>
-      <router-link to="/dynamic-map">Карта</router-link>
+      <router-link to="/map">Карта</router-link>
       <router-link to="/main">Правила</router-link>
       <router-link to="/wiki">Прочее</router-link>
 
