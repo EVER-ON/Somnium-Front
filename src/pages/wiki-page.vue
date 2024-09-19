@@ -187,8 +187,11 @@ adflabitur! Si noluit, ore belua nec crimine mixtoque, *e*.
 
 
 <style scoped>
+body {
+  background-color: var(--background);
+}
 .wiki-content {
-  max-height: 30vh;
+
   padding-top: 7rem;
   max-width: 800px;
   margin: 0 auto;
@@ -199,5 +202,6 @@ adflabitur! Si noluit, ore belua nec crimine mixtoque, *e*.
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
 }
 </style>

@@ -20,7 +20,7 @@ export default {
     <a href="/main" class="logo">
       <div class="logo-img">
         <img v-if="isWikiRoute" src="@resources/images/CatHead24_nerd.svg" draggable="false"/>
-        <img v-else src="../../resources/images/CatHead24.svg" draggable="false"/>
+        <img v-else src="@resources/images/CatHead24.svg" draggable="false"/>
       </div>
     </a>
 
@@ -91,16 +91,15 @@ header {
   height: 7rem;
   top: 0;
   left: 0;
-  background: var(--background);
+  background: rgba(14,15,20,0.8);
   box-shadow: var(--box-shadow);
   padding: 2rem 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  opacity: 80%;
   border-bottom: 2px solid rgba(255,255,255, 0.1); /* Параметры линии внизу */
-
+  backdrop-filter: blur(3px);
 }
 header .logo {
   font-size: 3rem;
@@ -210,7 +209,6 @@ header label {
 
 .buttons button:hover {
   background-color: var(--pastel-blauw);
-  backdrop-opacity: 0.1;
 
 }
 
@@ -235,8 +233,6 @@ header label {
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--background);
-    background-opacity: 0.7;
     padding: 1rem 2rem;
     border-top: .1rem solid rgba(0,0,0, 0.1);
     box-shadow: var(--box-shadow);
@@ -248,7 +244,7 @@ header label {
   header .navbar a {
     display: block;
     margin: 2rem 0;
-    font-silent: 1.8rem;
+    font-size: 1.8rem;
 
   }
   header input:checked ~ .navbar {

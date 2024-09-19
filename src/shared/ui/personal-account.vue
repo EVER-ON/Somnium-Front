@@ -4,16 +4,16 @@
 
 <template>
 
-    <div class="avatar">
-      <img src="@resources/images/steve.png" draggable="false"/>
+  <div class="avatar">
+    <img src="@resources/images/steve.png" draggable="false"/>
+  </div>
+  <div class="info">
+    <p>Приветствуем, Незнакомец</p>
+    <div class="buttons">
+      <button>Войти</button>
+      <button>Зарегистрироваться</button>
     </div>
-    <div class="info">
-      <p>Приветствуем, Незнакомец</p>
-      <div class="buttons">
-        <button>Войти</button>
-        <button>Зарегистрироваться</button>
-      </div>
-    </div>
+  </div>
 
 </template>
 
