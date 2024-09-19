@@ -3,7 +3,7 @@
     <div class="top-content">
       <span>SomniumCraft</span>
       <div class="button-container">
-        <button id="start-play">Начать играть</button>
+        <a href="https://discord.com/invite/CEDEQU6n6Y" id="start-play" target="_blank">Начать играть</a>
         <button id="ip-server" @click="copyIP">ip:play.somnium-craft.su</button>
       </div>
     </div>
@@ -52,6 +52,10 @@ export default {
 </script>
 
 <style>
+:root {
+  --font-size-button: 2rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -70,9 +74,7 @@ html {
   margin: 0;
 }
 
-body {
 
-}
 
 main {
   width: 100%;
@@ -84,7 +86,7 @@ main {
   flex-grow: 1;
 }
 
-.top-content {
+main .top-content {
   position: static;
   display: flex;
   flex-direction: column;
@@ -92,7 +94,7 @@ main {
   align-items: center;
   color: rgba(255, 255, 255, 0.9);
   font-size: calc(var(--font-size-button) * 4);
-  width:100%;
+  width: 100%;
   z-index: 10;
   min-height: 60vh;
   background-color: rgba(4, 4, 4, 0.4);
@@ -101,18 +103,15 @@ main {
   box-shadow: var(--box-shadow);
 }
 
-.button-container {
+main .top-content .button-container {
   display: flex;
   justify-content: center;
   align-content: center;
   gap: 2rem;
 }
 
-:root {
-  --font-size-button: 2rem;
-}
-
-.button-container button {
+main .top-content .button-container button,
+main .top-content .button-container a {
   font-style: normal;
   text-decoration: none;
   font-size: calc(var(--font-size-button));
@@ -125,7 +124,7 @@ main {
   cursor: pointer;
 }
 
-.button-container button:hover {
+main .top-content .button-container button:hover {
   -webkit-filter: brightness(115%);
   transition: all 1s ease;
 }
@@ -140,7 +139,7 @@ main {
   color: #fff;
 }
 
-.features-content {
+main .features-content {
   background-color: var(--background);
   min-height: 200vh;
   width: 100%;
@@ -174,28 +173,39 @@ main {
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50%) translateY(50px);
+  }
+}
+
 .custom-toast.fade-out {
-  opacity: 0;
-  transform: translateX(-50%) translateY(50px);
+  animation: fadeOut 0.5s ease forwards;
 }
 
 @media (max-width: 1200px) {
+  html {
+    font-size: 62%;
+  }
   :root {
     --font-size-button: 1.5rem;
   }
-
   .custom-toast {
-    font-size: 60%;
+    font-size: 90%;
   }
 }
 
 @media (max-width: 770px) {
   :root {
-    --font-size-button: 1rem;
+    --font-size-button: 1.3rem;
   }
-
   .custom-toast {
-    font-size: 40%;
+    font-size: 70%;
   }
 }
 </style>

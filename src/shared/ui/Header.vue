@@ -16,7 +16,7 @@ export default {
 </script>
 
 <template>
-  <header>
+  <header class = "no-select" >
     <a href="/main" class="logo">
       <div class="logo-img">
         <img v-if="isWikiRoute" src="@resources/images/CatHead24_nerd.svg" draggable="false"/>
@@ -38,6 +38,7 @@ export default {
       <router-link to="/wiki">Прочее</router-link>
 
     </nav>
+
     <div class="container">
       <div class="avatar">
         <img src="@resources/images/steve.png" draggable="false"/>
@@ -105,8 +106,6 @@ header .logo {
   font-size: 3rem;
   color: var(--white);
   transition: 0.5s;
-
-
 }
 header .logo span{
   color: var(--white);
@@ -116,17 +115,6 @@ header .logo span{
 
 
 }
-
-
-header .logo-img:hover img {
-  -webkit-filter: brightness(70%);
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-  transition: all 1s ease;
-}
-
 header .logo-img {
   width: 8rem;
   height: 8rem;
@@ -142,12 +130,25 @@ header .logo-img img{
 
 
 }
+header .logo-img:hover img {
+  -webkit-filter: brightness(70%);
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+header .navbar{
+  background-color: rgba(14,15,20,0.8);
+  backdrop-filter: blur(3px);
+}
 header .navbar a{
   margin-right: auto;
   font-size: 2rem;
   margin-left: 2rem;
   color: var(--white);
   transition: 0.5s;
+
 }
 
 header .navbar a:hover{
@@ -165,38 +166,38 @@ header label {
   opacity: 0;
 }
 
-.container {
+header .container {
   display: flex;
   align-items: center;
 
 }
 
-.avatar img {
+header .avatar img {
   width: 5rem;
   height: 5rem;
   border-radius: 1rem;
   margin-right: 1rem;
   border: 2px solid rgba(255,255,255, 0.1);
 }
-.info{
+header .info{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
 }
-.info span {
+header .info span {
   font-size: 1.6rem;
   color: white;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-.buttons {
+header .info .buttons {
   display: flex;
   gap: 1rem;
 }
 
-.buttons button {
+header .info .buttons button {
   padding: 0.5rem 1.5rem;
   border: 1px solid rgba(255,255,255, 0.1);
   background: transparent;
@@ -207,7 +208,7 @@ header label {
   transition: 0.3s;
 }
 
-.buttons button:hover {
+header .buttons button:hover {
   background-color: var(--pastel-blauw);
 
 }

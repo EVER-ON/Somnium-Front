@@ -9,10 +9,10 @@
         <span>Not an official Minecraft product. We are in no way affiliated with or endorsed by Mojang Synergies AB, Microsoft Corporation or other rightsholders.</span>
         <div class="icons">
           <ul>
-            <li><a href="https://www.youtube.com/@somnium-craft">
+            <li><a href="https://www.youtube.com/@somnium-craft" target="_blank" >
               <font-awesome-icon :icon="['fab', 'youtube']" />
             </a></li>
-            <li><a href="#">
+            <li><a href="https://discord.com/invite/CEDEQU6n6Y" target="_blank">
               <font-awesome-icon :icon="['fab', 'discord']" />
             </a></li>
           </ul>
@@ -59,11 +59,11 @@ footer{
   left: 0;
   right: 0;
   min-height: 5rem;
-  
+
 
 
 }
-.footer-content{
+footer .footer-content{
   padding: 1rem;
   width: 100%;
   height: 100%;
@@ -73,7 +73,7 @@ footer{
   backdrop-filter: blur(5px);
   border-top: 2px solid rgba(255,255,255, 0.1);
 }
-.footer-top-container{
+footer .footer-content .footer-top-container{
 
   display: flex;
   align-items: center;
@@ -85,17 +85,17 @@ footer{
   text-align: center; /* Центрирует текст внутри span */
 
 }
-.footer-top-container span{
+footer .footer-content .footer-top-container span{
   font-weight: 300;
 }
-.icons ul {
+footer .footer-content .footer-top-container .icons ul {
   list-style: none; /* Убирает маркеры списка */
   padding: 0; /* Убирает отступы */
   display: flex; /* Располагает элементы в ряд */
   gap: 5rem; /* Пробел между иконками */
 }
 
-.icons li {
+footer .footer-content .footer-top-container .icons li {
   display: inline-block; /* Чтобы элементы списка располагались в ряд */
   font-size: 4rem;
 }
