@@ -1,22 +1,41 @@
+<script>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+export default {
+  setup() {
+    const route = useRoute();
+
+    const isWikiRoute = computed(() => route.path === '/wiki');
+
+    return {
+      isWikiRoute
+    };
+  }
+};
+</script>
+
 <template>
   <header>
-    <a href="#" class="logo">
+    <a href="/main" class="logo">
       <div class="logo-img">
-        <img src="@resources/images/logo.svg" draggable="false"/>
+        <img v-if="isWikiRoute" src="@resources/images/CatHead24_nerd.svg" draggable="false"/>
+        <img v-else src="../../resources/images/CatHead24.svg" draggable="false"/>
       </div>
-
     </a>
+
     <input type="checkbox" name="menu" id="menu">
     <label for="menu">
       <font-awesome-icon :icon="['fas', 'bars']" />
     </label>
+
     <nav class="navbar">
 
-      <a href="#">Главная</a>
-      <a href="#">Вики</a>
-      <a href="#">Карта</a>
-      <a href="#">Прочее</a>
-      <a href="#">Правила</a>
+      <router-link to="/main">Главная</router-link>
+      <router-link to="/wiki">Вики</router-link>
+      <router-link to="/dynamic-map">Карта</router-link>
+      <router-link to="/main">Правила</router-link>
+      <router-link to="/wiki">Прочее</router-link>
 
     </nav>
     <div class="container">
@@ -33,11 +52,6 @@
     </div>
   </header>
 </template>
-
-<script>
-
-export default {}
-</script>
 
 <style>
 
@@ -115,8 +129,8 @@ header .logo-img:hover img {
 }
 
 header .logo-img {
-  width: 6rem;
-  height: 6rem;
+  width: 8rem;
+  height: 8rem;
   border-radius: 2rem;
 
 }
@@ -131,20 +145,14 @@ header .logo-img img{
 }
 header .navbar a{
   margin-right: auto;
-}
-
-header .navbar a{
-  font-size: 1.7rem;
+  font-size: 2rem;
   margin-left: 2rem;
   color: var(--white);
   transition: 0.5s;
-
-
 }
 
 header .navbar a:hover{
   color: var(--pastel-blauw);
-
 }
 
 header input{
