@@ -7,7 +7,12 @@
         <button id="ip-server" @click="copyIP">ip:play.somnium-craft.su</button>
       </div>
     </div>
-    <div class="features-content"></div>
+    <div class="features-content">
+      <News />
+      <Blog/>
+
+
+    </div>
     <!-- Кастомное уведомление -->
     <div v-if="showNotification" class="custom-toast">
       IP адрес скопирован!
@@ -16,7 +21,11 @@
 </template>
 
 <script>
+import News from '@features/news/news.vue';
+import Blog from '@features/blog/blog.vue'
+
 export default {
+  components: {Blog, News},
   data() {
     return {
       showNotification: false
@@ -99,8 +108,7 @@ main .top-content {
   min-height: 60vh;
   background-color: rgba(4, 4, 4, 0.4);
   backdrop-filter: blur(4px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: var(--box-shadow);
+
 }
 
 main .top-content .button-container {
@@ -141,8 +149,11 @@ main .top-content .button-container button:hover {
 
 main .features-content {
   background-color: var(--background);
-  min-height: 200vh;
+  min-height: 90vh;
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+
 }
 
 .custom-toast {
