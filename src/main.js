@@ -5,11 +5,11 @@ import App from './app/App.vue'
 import router from './app/router.js'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
+import {faArrowLeft, faBars, faRotateRight} from '@fortawesome/free-solid-svg-icons'
 import { faYoutube, faDiscord } from '@fortawesome/free-brands-svg-icons'
 
 // Добавьте иконки в библиотеку
-library.add(faBars, faYoutube, faDiscord)
+library.add(faBars, faYoutube, faDiscord, faArrowLeft, faRotateRight)
 
 const app = createApp(App)
 
