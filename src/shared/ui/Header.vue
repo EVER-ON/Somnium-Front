@@ -139,8 +139,7 @@ header .logo-img:hover img {
   transition: all 1s ease;
 }
 header .navbar{
-  background-color: rgba(14,15,20,0.8);
-  backdrop-filter: blur(3px);
+
 }
 header .navbar a{
   margin-right: auto;
@@ -240,7 +239,8 @@ header .buttons button:hover {
     transform-origin: top;
     transform: scale(0);
     opacity: 0;
-
+    background-color: rgba(14,15,20,0.8);
+    backdrop-filter: blur(3px);
   }
   header .navbar a {
     display: block;

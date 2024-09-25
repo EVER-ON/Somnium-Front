@@ -9,16 +9,18 @@ import WikiPage from "@/pages/wiki-page.vue";
 import NotFound from '@/pages/404.vue';
 
 const routes = [
+    { path: '/', redirect: '/main' }, // Редирект с корневого пути на главную страницу
     { path: '/main', name: 'MainPage', component: MainPage },
     { path: '/wiki', name: 'WikiPage', component: WikiPage },
     { path: '/blog', name: 'BlogPage', component: BlogPage },
     { path: '/news', name: 'NewsPage', component: NewsPage },
     { path: '/map', name: 'Map', beforeEnter() {
-            window.open('https://world.scmc.dev/','_blank', );
-            return false; // prevent navigation
+            window.open('https://world.scmc.dev/', '_blank');
+            return false; // предотвратить навигацию
         }},
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound } // 404
 ];
+
 
 const currentPath = ref(window.location.hash);
 
