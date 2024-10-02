@@ -24,100 +24,32 @@
 
 
 <script>
+import { fetchNews } from "@/shared/api/fetchNews.js";
+
 export default {
   data() {
     return {
-      news: [
-        {
-          id: 1,
-          title: 'Обновление Minecraft 1.20: Новые биомы и существа',
-          description: 'С последним обновлением в Minecraft появились новые биомы, включая загадочные леса и ледяные равнины. Игроки теперь могут столкнуться с новыми существами и предметами.',
-          img: 'src/resources/images/image.png',
-          date: "10.02.2024",
-          time: "18:00"
-        },
-        {
-          id: 2,
-          title: 'Как построить замок в Minecraft: пошаговое руководство',
-          description: 'В этой статье мы расскажем, как построить величественный замок, используя различные блоки и техники строительства. Следуйте нашему руководству!',
-          img: 'src/resources/images/image.png',
-          date: "11.02.2024",
-          time: "10:30"
-        },
-        {
-          id: 3,
-          title: 'Новые мобы в Minecraft: чего ожидать в следующем обновлении',
-          description: 'В новом обновлении разработчики добавят несколько новых мобов, каждый из которых будет обладать уникальными способностями и поведением.',
-          img: 'src/resources/images/image.png',
-          date: "12.02.2024",
-          time: "14:15"
-        },
-        {
-          id: 4,
-          title: 'Лучшие моды для Minecraft в 2024 году',
-          description: 'Собрали для вас топовые моды, которые сделают вашу игру еще более увлекательной. Узнайте, как их установить и какие функции они добавляют.',
-          img: 'src/resources/images/image.png',
-          date: "13.02.2024",
-          time: "09:00"
-        },
-        {
-          id: 5,
-          title: 'Топ-10 самых креативных построек в Minecraft',
-          description: 'Посмотрите на самые удивительные постройки, созданные игроками по всему миру. Возможно, они вдохновят вас на создание собственного шедевра.',
-          img: 'src/resources/images/image.png',
-          date: "14.02.2024",
-          time: "11:45"
-        },
-        {
-          id: 6,
-          title: 'Как приручить животных в Minecraft: советы и трюки',
-          description: 'Научитесь, как приручать различных животных в Minecraft и использовать их в своих приключениях. Пошаговые инструкции и советы.',
-          img: 'src/resources/images/image.png',
-          date: "15.02.2024",
-          time: "16:20"
-        },
-        {
-          id: 7,
-          title: 'Стратегии выживания в Minecraft: от новичка до мастера',
-          description: 'Обзор эффективных стратегий, которые помогут вам выжить в жестоком мире Minecraft. От простых до сложных методов.',
-          img: 'src/resources/images/image.png',
-          date: "16.02.2024",
-          time: "12:00"
-        },
-        {
-          id: 8,
-          title: 'Обзор новых предметов в Minecraft 1.20',
-          description: 'В последнем обновлении добавлены новые предметы, которые обогатят игровой процесс. Узнайте, как их использовать!',
-          img: 'src/resources/images/image.png',
-          date: "17.02.2024",
-          time: "08:30"
-        },
-        {
-          id: 9,
-          title: 'Как создать автоматические фермы в Minecraft',
-          description: 'Изучите, как построить автоматические фермы для получения ресурсов с минимальными затратами. Полезные советы для игроков.',
-          img: '',
-          date: "18.02.2024",
-          time: "15:00"
-        },
-        {
-          id: 10,
-          title: 'Советы по игре в Minecraft: улучшите свои навыки',
-          description: 'Собрали лучшие советы от опытных игроков, которые помогут вам стать мастером Minecraft. Применяйте их на практике!',
-          img: 'src/resources/images/image.png',
-          date: "19.02.2024",
-          time: "19:45"
-        }
-      ]
-    }
+      news: [],
+    };
   },
-  mounted() {
-    this.sortNews();
+  async mounted() {
+    await this.loadNews();
   },
   methods: {
+    async loadNews() {
+      try {
+        this.news = await fetchNews(); // Предполагаем, что fetchNews возвращает массив новостей
+        this.sortNews(); // Сортируем новости после загрузки
+      } catch (error) {
+        console.error('Ошибка при загрузке новостей:', error);
+      }
+    },
     truncatedDescription(description) {
-      if (description.length > 380) {
-        return description.slice(0, 380) + '...';
+      console.log('Описание:', description);
+      console.log('Длина описания:', description.length);
+      var size = 180;
+      if (description && description.length > size) {
+        return description.slice(0, size) + '...';
       }
       return description;
     },
@@ -127,11 +59,11 @@ export default {
         const dateB = new Date(`${b.date.split('.').reverse().join('-')}T${b.time}`);
         return dateB - dateA;
       });
-    }
-
+    },
   }
 }
 </script>
+
 
 
 <style scoped>
@@ -150,10 +82,12 @@ export default {
 }
 
 .newsSection {
-  width: 60%;
+  //width: 60%;
+  width: 90rem;
   display: flex;
   flex-direction: column;
   padding: 4rem 2rem;
+  align-items: end;
 
 }
 
@@ -192,7 +126,7 @@ export default {
   align-items: stretch;
   width: 100%;
   gap: 1rem;
-  height: 200px; /* Фиксированная высота для новостей */
+  max-height: 30%; /* Фиксированная высота для новостей */
 }
 
 .news-image {
@@ -200,6 +134,7 @@ export default {
   height: auto;/* Фиксированная ширина для изображения */
   object-fit: cover; /* Обрезка изображения */
   border-radius: 30px;
+
 }
 
 .text {

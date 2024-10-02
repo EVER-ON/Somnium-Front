@@ -34,8 +34,8 @@ export default {
       <router-link to="/main">Главная</router-link>
       <router-link to="/wiki">Вики</router-link>
       <router-link to="/map">Карта</router-link>
-      <router-link to="/main">Правила</router-link>
-      <router-link to="/wiki">Прочее</router-link>
+      <router-link to="/404">Правила</router-link>
+      <router-link to="/404">Прочее</router-link>
 
     </nav>
 
@@ -101,6 +101,7 @@ header {
   z-index: 100;
   border-bottom: 2px solid rgba(255,255,255, 0.1); /* Параметры линии внизу */
   backdrop-filter: blur(3px);
+  gap: 1.5rem;
 }
 header .logo {
   font-size: 3rem;
