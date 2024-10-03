@@ -22,7 +22,7 @@
 
 <script>
 import News from '@features/news/news.vue';
-import Blog from '@features/blog/blog.vue'
+import Blog from '@features/blog/blog.vue';
 
 export default {
   components: {Blog, News},
@@ -109,6 +109,7 @@ main .top-content {
   background-color: rgba(4, 4, 4, 0.4);
   backdrop-filter: blur(4px);
 
+
 }
 
 main .top-content .button-container {
@@ -152,7 +153,7 @@ main .features-content {
   min-height: 90vh;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
 }
 
@@ -161,7 +162,8 @@ main .features-content {
   bottom: var(--font-size-button);
   left: 50%;
   transform: translateX(-50%) translateY(50px);
-  background-color: rgba(29, 30, 38, 0.7);
+  /* background-color: rgba(29, 30, 38, 0.7); */
+  background-color: rgba(255, 255, 255, 0.1);
   color: white;
   padding: calc(var(--font-size-button) / 2) calc(var(--font-size-button) * 2);
   border-radius: calc(var(--font-size-button) * 2);

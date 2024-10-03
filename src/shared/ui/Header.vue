@@ -46,8 +46,7 @@ export default {
       <div class="info">
         <span>Приветствуем, Незнакомец</span>
         <div class="buttons">
-          <button>Войти</button>
-          <button>Зарегистрироваться</button>
+          <button>Личный кабинет</button>
         </div>
       </div>
     </div>
@@ -86,7 +85,6 @@ body{
 
 }
 header {
-
   position:fixed;
   width: 100%;
   height: 7rem;
@@ -206,6 +204,7 @@ header .info .buttons button {
   border-radius: 0.5rem;
   cursor: pointer;
   transition: 0.3s;
+  width: 100%;
 }
 
 header .buttons button:hover {
@@ -225,6 +224,7 @@ header .buttons button:hover {
   header label{
     visibility: visible;
     opacity:1;
+  
 
   }
 

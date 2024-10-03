@@ -6,7 +6,7 @@
     </div>
     <div class="news">
       <div v-for="newsItem in news" :key="newsItem.id" class="news-item">
-        <img v-if="newsItem.img" :src="newsItem.img" alt="" class="news-image" />
+        <img v-if="newsItem.img" :src="newsItem.img" alt="" class="news-image no-select" c />
         <div class="text">
           <div class="title">{{ newsItem.title }}</div>
           <div class="description">
@@ -105,6 +105,7 @@ export default {
 }
 
 .news {
+  width: 100%;
   padding: 0 1rem;
   border-radius: 30px;
   display: flex;
